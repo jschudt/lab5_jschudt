@@ -24,7 +24,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         ArrayList<String[]> schedule = new ArrayList<String[]>();
 
-        schedule.add(new String[]{"floridastate", "Florida State", "Feb 11"});
+        schedule.add(new String[]{"floridastate", "Flerida State", "Feb 11"});
         schedule.add(new String[]{"bostoncollege", "Boston College", "Feb 14"});
         schedule.add(new String[]{"northcarolinastate", "North Carolina State", "Feb 18"});
         schedule.add(new String[]{"georgiatech", "Georgia Tech", "Feb 26"});
