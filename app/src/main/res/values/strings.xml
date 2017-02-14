@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lab1_jschudt</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="welcome_to_doggo">Welcome to Doggo</string>
+    <string name="this_is_doggo">This is Doggo</string>
+    <string name="teamname">TeamName</string>
+    <string name="gamedate">GameDate</string>
+    <string name="teamlogo">Teamlogo</string>
+</resources>
