@@ -30,7 +30,7 @@ public class ScheduleAdapter extends ArrayAdapter<String[]> {
 
         ImageView TeamLogo = (ImageView) scheduleView.findViewById(R.id.TeamLogo);
         String mDrawableName = matchItem[0];
-        int resID = getContext().getResources().getIdentifier(mDrawableName , "drawable", getContext().getPackageName());
+        int resID = getContext().getResources().getIdentifier(mDrawableName , "mipmap", getContext().getPackageName());
         TeamLogo.setImageResource(resID);
 
 

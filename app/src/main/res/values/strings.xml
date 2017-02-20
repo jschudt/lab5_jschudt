@@ -6,4 +6,21 @@
     <string name="teamname">TeamName</string>
     <string name="gamedate">GameDate</string>
     <string name="teamlogo">Teamlogo</string>
+    <string name="logo_of_away_team">Logo of Away Team</string>
+    <string name="logo_of_home_team">Logo of Home Team</string>
+    <string name="score_of_away_team">Score of Away Team</string>
+    <string name="score_of_home_team">Score of Home Team</string>
+    <string name="dash">dash</string>
+    <string name="dashchar">-</string>
+    <string name="_72">72</string>
+    <string name="_84">84</string>
+    <string name="_19_7">(19-7)</string>
+    <string name="_21_5">(21-5)</string>
+    <string name="saturday_feb_11_6_00pm">Saturday, Feb 11, 6:00pm</string>
+    <string name="notredame">NotreDame</string>
+    <string name="florida_state">Florida State</string>
+    <string name="notre_dame">Notre Dame</string>
+    <string name="seminoles">Seminoles</string>
+    <string name="fighting_irish">Fighting Irish</string>
+    <string name="camera">Camera</string>
 </resources>
