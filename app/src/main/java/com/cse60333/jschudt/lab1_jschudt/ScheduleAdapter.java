@@ -16,9 +16,9 @@ import static com.cse60333.jschudt.lab1_jschudt.R.layout.schedule_item;
  * Created by JoeS on 2/11/2017.
  */
 
-public class ScheduleAdapter extends ArrayAdapter<String[]> {
-    ScheduleAdapter (Context context, ArrayList<String[]> schedule){
-        super(context, schedule_item, schedule);
+public class ScheduleAdapter extends ArrayAdapter<Team> {
+    ScheduleAdapter (Context context, ArrayList<Team> teams){
+        super(context, schedule_item, teams);
     };
 
     @Override
@@ -26,19 +26,19 @@ public class ScheduleAdapter extends ArrayAdapter<String[]> {
         LayoutInflater scheduleInflater = LayoutInflater.from(getContext());
         View scheduleView = scheduleInflater.inflate(schedule_item, parent, false);
 
-        String[] matchItem = getItem(position);
+        Team matchItem = getItem(position);
 
         ImageView TeamLogo = (ImageView) scheduleView.findViewById(R.id.TeamLogo);
-        String mDrawableName = matchItem[0];
+        String mDrawableName = matchItem.teamLogo;
         int resID = getContext().getResources().getIdentifier(mDrawableName , "mipmap", getContext().getPackageName());
         TeamLogo.setImageResource(resID);
 
 
         TextView TeamName = (TextView) scheduleView.findViewById(R.id.TeamName);
-        TeamName.setText(matchItem[1]);
+        TeamName.setText(matchItem.getTeamName());
 
         TextView GameDate = (TextView) scheduleView.findViewById(R.id.GameDate);
-        GameDate.setText(matchItem[2]);
+        GameDate.setText(matchItem.getGameDate());
 
         return scheduleView;
     }

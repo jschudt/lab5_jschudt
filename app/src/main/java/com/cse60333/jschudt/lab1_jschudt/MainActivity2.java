@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import java.util.ArrayList;
 
 import static android.R.attr.name;
+import static android.R.attr.resource;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -23,30 +24,63 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String[]> schedule = new ArrayList<String[]>();
+        final ArrayList<Team> teams = new ArrayList<Team>();
+        MyCsvFileReader file = new MyCsvFileReader(getApplicationContext());
+        ArrayList<String[]> rawteamlist = file.readCsvFile(R.raw.schedule);
 
-        schedule.add(new String[]{"floridastate", "Florida State", "Feb 11"});
-        schedule.add(new String[]{"bostoncollege", "Boston College", "Feb 14"});
-        schedule.add(new String[]{"northcarolinastate", "North Carolina State", "Feb 18"});
-        schedule.add(new String[]{"georgiatech", "Georgia Tech", "Feb 26"});
-        schedule.add(new String[]{"bostoncollege", "Boston College", "March 1"});
-        schedule.add(new String[]{"louisville", "Louisville", "March 4"});
-        schedule.add(new String[]{"acctournament", "ACC Tournament", "March 7"});
-        schedule.add(new String[]{"ncaatournament", "NCAA Tournament", "March 16"});
+        Team floridaState = new Team(rawteamlist.get(0));
+        Team bostonCollege = new Team(rawteamlist.get(1));
+        Team northCarolinaState = new Team(rawteamlist.get(2));
+        Team georgiaTech = new Team(rawteamlist.get(3));
+        Team bostonCollege2 = new Team(rawteamlist.get(4));
+        Team louisVille = new Team(rawteamlist.get(5));
+        Team accTournament = new Team(rawteamlist.get(6));
+        Team ncaaTournament = new Team(rawteamlist.get(7));
+
+        teams.add(floridaState);
+        teams.add(bostonCollege);
+        teams.add(northCarolinaState);
+        teams.add(georgiaTech);
+        teams.add(bostonCollege2);
+        teams.add(louisVille);
+        teams.add(accTournament);
+        teams.add(ncaaTournament);
+
 
         ListView ScheduleListView = (ListView) findViewById(R.id.ScheduleListView);
 
-        ScheduleAdapter scheduleAdapter = new ScheduleAdapter(getApplicationContext(), schedule);
+        ScheduleAdapter scheduleAdapter = new ScheduleAdapter(getApplicationContext(), teams);
 
         ScheduleListView.setAdapter(scheduleAdapter);
 
+
+/**
+        final Team floridaState = new Team("Florida State", "floridastate", "(21-7)", "Seminoles", "0",
+                "Saturday, February 11, 6:00 PM");
+        final Team bostonCollege = new Team("Boston College", "bostoncollege", "(9-18)", "Eagles", "0",
+                "Tuesday, February 14, 7:00 PM");
+        final Team northCarolinaState = new Team("North Carolina State", "northcarolinastate", "(21-7)", "Wolfpack", "0",
+                "Saturday, February 18, 12:00 PM");
+        final Team georgiaTech = new Team("Georgia Tech", "georgiatech", "(15-11)", "Yellow Jackets", "0",
+                "Sunday, February 26, 6:30 PM");
+        final Team louisVille = new Team("Louisville", "louisville", "(22-5)", "Cardinals", "0",
+                "Saturday, March 4, 2:00 PM");
+        final Team bostonCollege2 = new Team("Boston College", "bostoncollege", "(9-18)", "Eagles", "0",
+                "Wednesday, March 1, 8:00 PM");
+        final Team accTournament = new Team("ACC Tourney", "acctournament", " ", " ", "0",
+                "March 7, TBD");
+        final Team ncaaTournament = new Team("NCAA Tourney", "ncaatournament", " ", " ", "0",
+                "March 16, TBD");
+**/
 
 
         AdapterView.OnItemClickListener clickListener = new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ArrayList<String[]> gameDetail = new ArrayList<String[]>();
 
+
+                // Old String Arrays
+                /**
                 gameDetail.add(new String[]{"notredame", "floridastate", "84", "72", "Notre Dame", "Florida State", "Fighting Irish",
                         "Seminoles", "(21-7)", "(21-5)", "Saturday, February 11, 6:00 PM"});
                 gameDetail.add(new String[]{"bostoncollege", "notredame", "76", "84", "Boston College", "Notre Dame", "Eagles",
@@ -63,9 +97,10 @@ public class MainActivity2 extends AppCompatActivity {
                         "TBD", "(21-7)", "(0-0)", "March 7, TBD"});
                 gameDetail.add(new String[]{"notredame", "ncaatournament", "0", "0", "Notre Dame", "NCAA Tournament", "Fighting Irish",
                         "TBD", "(21-7)", "(0-0)", "March 16, TBD"});
+                **/
 
                 Intent intent = new Intent(MainActivity2.this, DetailActivity.class);
-                intent.putExtra("gameDetail", gameDetail.get(position));
+                intent.putExtra("team", teams.get(position));
                 startActivity(intent);
             }
         };
